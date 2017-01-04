@@ -1,0 +1,23 @@
+$def with (form, results)
+
+<div style="width:50%;text-align:center;margin:auto">
+    <h2>Información para el Consumidor</h2>
+    <form name="main" method="post">
+$if not form.valid:<p class="error">Información erronea</p>
+$:form.render()
+<input type="submit" /> </form>
+</div>
+<div>
+    $if results:
+    <table  border="1" align="center">
+        <th>Sucursal</th>
+        <th>Producto</th>
+        <th style="padding-left:15px">Precio</th>
+        $for row in results:
+         <tr>
+             <td>$row[0]</td>
+             <td>$row[1]</td>
+              <td style="padding-left:15px">$row[2]</td>
+        </tr>
+    </table>
+</div>
